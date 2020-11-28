@@ -13,7 +13,7 @@ class Doc extends CI_Controller
 	public function view($id)
 	{
 		$data = [
-			'dt_daftar' => $this->query->getDetailPedaftaran($id)
+			'dt_daftar' => $this->Query->getDetailPedaftaran($id)
 		];
 
 		$this->load->view('laporan_pdf', $data);
@@ -22,7 +22,7 @@ class Doc extends CI_Controller
 	public function cetak($id)
 	{
 		$data = [
-			'dt_daftar' => $this->query->getDetailPedaftaran($id)
+			'dt_daftar' => $this->Query->getDetailPedaftaran($id)
 		];
 
 		$mpdf = new \Mpdf\Mpdf();
@@ -35,7 +35,7 @@ class Doc extends CI_Controller
 	public function print($id)
 	{
 		$data = [
-			'dt_daftar' => $this->query->getDetailPedaftaran($id)
+			'dt_daftar' => $this->Query->getDetailPedaftaran($id)
 		];
 
 		$this->load->view('laporan_pdf_print', $data); // opens in browser
