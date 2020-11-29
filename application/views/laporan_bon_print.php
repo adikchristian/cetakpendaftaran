@@ -8,7 +8,7 @@
     <style>
         body{
             margin: 0px;
-            padding: 0px;
+            padding: 10px;
         }
         #contaniner {
             width: auto;
@@ -70,11 +70,12 @@
         <div id="header">
             <div id="header-kiri">
                 <h3 class="invoice-title">
-                    Bukti Pendaftaran Online
+                    Bon Peminjaman<br>
+                    Rekam Medis
                 </h3>
             </div>
             <div id="header-kanan">
-                <img src="<?php echo base_url(); ?>/public/assets/img/examples/logoinvoice.svg" alt="company logo" style="margin-bottom: 10px;">
+                <img src="<?php echo base_url(); ?>/assets/img/logo.png" alt="company logo" style="margin-bottom: 10px; width:80px; height:80px;">
                 <br />
                 Bandung, West Java, Indonesia<br />
                 Fax 621113
@@ -84,77 +85,34 @@
         <div class="content">
             <table class="table" width="100%" border-collapse="collapse" cellpadding="5" style="margin-bottom: 20px;">
                 <tr>
-                    <td colspan="3"><b>Detail Pasien</b></td>
-                </tr>
-                <tr>
                     <td width="130px">No Rm</td>
                     <td width="30px">:</td>
-                    <td><?php echo $dt_daftar->no_rm; ?></td>
+                    <td><?php echo $dt_bon->no_rm; ?></td>
                 </tr>
                 <tr>
                     <td>Nama Pasien</td>
                     <td>:</td>
-                    <td><?php echo $dt_daftar->nama_pasien; ?></td>
+                    <td><?php echo $dt_bon->nama_pasien; ?></td>
                 </tr>
                 <tr>
-                    <td>Tgl Lahir</td>
+                    <td>Tgl Peminjaman</td>
                     <td>:</td>
-                    <td><?php echo tglIndo($dt_daftar->tgl_lahir); ?></td>
+                    <td><?php echo tglIndo($dt_bon->tgl_proses); ?></td>
                 </tr>
                 <tr>
-                    <td>No JKN</td>
+                    <td>Tgl Dikembalikan</td>
                     <td>:</td>
-                    <td><?php echo $dt_daftar->no_jkn; ?></td>
+                    <td><?php echo tglIndo($dt_bon->tgl_kembali);; ?></td>
                 </tr>
                 <tr>
-                    <td>Jenis Kelamin</td>
+                    <td>Nama Peminjaman</td>
                     <td>:</td>
-                    <td><?php echo jenKel($dt_daftar->jk); ?></td>
+                    <td><?php echo $dt_bon->nama_peminjam; ?></td>
                 </tr>
                 <tr>
-                    <td>Alamat</td>
+                    <td>Keterangan</td>
                     <td>:</td>
-                    <td><?php echo $dt_daftar->alamat; ?></td>
-                </tr>
-                <tr>
-                    <td>Telp / Hp</td>
-                    <td>:</td>
-                    <td><?php echo $dt_daftar->telp; ?></td>
-                </tr>
-                <tr>
-                    <td>Umur</td>
-                    <td>:</td>
-                    <td><?php echo $dt_daftar->umur.' Tahun'; ?></td>
-                </tr>
-            </table>
-            <table class="table" width="100%" border-collapse="collapse" cellpadding="5">
-                <tr>
-                    <td colspan="3"><b>Detail Kunjungan</b></td>
-                </tr>
-                <tr>
-                    <td width="130px">No Registrasi</td>
-                    <td width="30px">:</td>
-                    <td><?php echo $dt_daftar->no_reg; ?></td>
-                </tr>
-                <tr>
-                    <td>Poliklinik</td>
-                    <td>:</td>
-                    <td><?php echo $dt_daftar->name_poli; ?></td>
-                </tr>
-                <tr>
-                    <td>Dokter</td>
-                    <td>:</td>
-                    <td><?php echo $dt_daftar->dokter_name; ?></td>
-                </tr>
-                <tr>
-                    <td>Tanggal</td>
-                    <td>:</td>
-                    <td><?php echo TglIndo($dt_daftar->tgl_kontrol); ?></td>
-                </tr>
-                <tr>
-                    <td>Jadwal</td>
-                    <td>:</td>
-                    <td><?php echo $dt_daftar->hari; ?>, <?php echo $dt_daftar->jam; ?></td>
+                    <td><?php //echo $dt_bon->alamat; ?></td>
                 </tr>
             </table>
         </div>
@@ -180,14 +138,14 @@
             <div class="col-sm-12 col-md-7 mb-3 mb-md-0 transfer-to">
                 <h5 class="sub">Detail Pasien</h5>
                 <div class="account-transfer text-left">
-                    <div><span>No Rm:</span><span class=""><?php echo $dt_daftar->no_rm; ?></span></div>
-                    <div><span>Nama Pasien:</span><span class="text-left"><?php echo $dt_daftar->nama_pasien; ?></span></div>
-                    <div><span>Tgl Lahir:</span><span><?php echo tglIndo($dt_daftar->tgl_lahir); ?></span></div>
-                    <div><span>No Jkn:</span><span><?php echo $dt_daftar->no_jkn; ?></span></div>
-                    <div><span>Jenis Kelamin:</span><span><?php echo jenKel($dt_daftar->jk); ?></span></div>
-                    <div><span>Alamat:</span><span><?php echo $dt_daftar->alamat; ?></span></div>
-                    <div><span>Telp / HP:</span><span><?php echo $dt_daftar->telp; ?></span></div>
-                    <div><span>Umur:</span><span><?php echo $dt_daftar->umur . ' Tahun'; ?></span></div>
+                    <div><span>No Rm:</span><span class=""><?php echo $dt_bon->no_rm; ?></span></div>
+                    <div><span>Nama Pasien:</span><span class="text-left"><?php echo $dt_bon->nama_pasien; ?></span></div>
+                    <div><span>Tgl Lahir:</span><span><?php echo tglIndo($dt_bon->tgl_lahir); ?></span></div>
+                    <div><span>No Jkn:</span><span><?php echo $dt_bon->no_jkn; ?></span></div>
+                    <div><span>Jenis Kelamin:</span><span><?php echo jenKel($dt_bon->jk); ?></span></div>
+                    <div><span>Alamat:</span><span><?php echo $dt_bon->alamat; ?></span></div>
+                    <div><span>Telp / HP:</span><span><?php echo $dt_bon->telp; ?></span></div>
+                    <div><span>Umur:</span><span><?php echo $dt_bon->umur . ' Tahun'; ?></span></div>
                 </div>
             </div>
         </div>
@@ -196,12 +154,12 @@
             <div class="col-sm-12 col-md-7 mt-5 mb-md-0 transfer-to">
                 <h5 class="sub">Detail Kunjungan</h5>
                 <div class="account-transfer text-left">
-                    <div><span>No Registrasi:</span><span class=""><?php echo $dt_daftar->no_reg; ?></span></div>
+                    <div><span>No Registrasi:</span><span class=""><?php echo $dt_bon->no_reg; ?></span></div>
 
-                    <div><span>Poli/Pelayanan:</span><span class=""><?php echo $dt_daftar->name_poli; ?></span></div>
-                    <div><span>Dokter:</span><span class="text-left"><?php echo $dt_daftar->dokter_name; ?></span></div>
-                    <div><span>Tanggal:</span><span><?php echo tglIndo($dt_daftar->tgl_kontrol); ?></span></div>
-                    <div><span>Jadwal:</span><span><?php echo $dt_daftar->hari; ?>, <?php echo $dt_daftar->jam; ?></span></div>
+                    <div><span>Poli/Pelayanan:</span><span class=""><?php echo $dt_bon->name_poli; ?></span></div>
+                    <div><span>Dokter:</span><span class="text-left"><?php echo $dt_bon->dokter_name; ?></span></div>
+                    <div><span>Tanggal:</span><span><?php echo tglIndo($dt_bon->tgl_kontrol); ?></span></div>
+                    <div><span>Jadwal:</span><span><?php echo $dt_bon->hari; ?>, <?php echo $dt_bon->jam; ?></span></div>
                 </div>
             </div>
         </div>

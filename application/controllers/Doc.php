@@ -26,7 +26,7 @@ class Doc extends CI_Controller
 		];
 
 		$mpdf = new \Mpdf\Mpdf();
-		$filname = 'pendaftaran-' . $id.'.pdf';
+		$filname = 'pendaftaran-' . $id . '.pdf';
 		$html = $this->load->view('laporan_pdf', $data, true);
 		$mpdf->WriteHTML($html);
 		$mpdf->Output($filname, 'D'); // opens in browser
@@ -39,5 +39,13 @@ class Doc extends CI_Controller
 		];
 
 		$this->load->view('laporan_pdf_print', $data); // opens in browser
+	}
+
+	public function cetakbon($id)
+	{
+		$data = [
+			'dt_bon' => $this->Query->getAmbiAndKembali($id)
+		];
+		$this->load->view('laporan_bon_print', $data);
 	}
 }
