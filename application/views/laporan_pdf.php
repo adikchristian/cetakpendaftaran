@@ -153,6 +153,11 @@
                     <td>:</td>
                     <td><?php echo $dt_daftar->hari; ?>, <?php echo $dt_daftar->jam; ?></td>
                 </tr>
+                <tr>
+                    <td>Keluhan</td>
+                    <td>:</td>
+                    <td><?php echo $dt_daftar->keluhan; ?></td>
+                </tr>
             </table>
         </div>
         <b>Notes</b><br /> We really appreciate your business and if there's anything else we can do, please let us know! Also, should you need us to add VAT or anything else to this order, it's super easy since this is a template, so just ask!
