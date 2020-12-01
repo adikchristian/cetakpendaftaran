@@ -33,7 +33,12 @@ function getPengembalianByIdTgl($id)
     //$m = $ci->load->model('Query');
     $row = $ci->db->query("SELECT * FROM t_pengembalian WHERE id_pengambilan='$id'");
     $sql = $row->row();
-    $tgl = $sql->tgl_kembali;
+    $count = $row->num_rows();
+    if($count > 0){
+        $tgl = $sql->tgl_kembali;
+    }else{
+        $tgl="-";
+    }
     return $tgl;
 }
 ?>
