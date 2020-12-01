@@ -102,7 +102,7 @@
                 <tr>
                     <td>Tgl Dikembalikan</td>
                     <td>:</td>
-                    <td><?php echo tglIndo($dt_bon->tgl_kembali);; ?></td>
+                    <td><?php echo getPengembalianByIdTgl($dt_bon->id_pengambilan); //echo tglIndo($dt_bon->tgl_kembali);; ?></td>
                 </tr>
                 <tr>
                     <td>Nama Peminjaman</td>
@@ -112,7 +112,7 @@
                 <tr>
                     <td>Keterangan</td>
                     <td>:</td>
-                    <td><?php //echo $dt_bon->alamat; ?></td>
+                    <td><?php echo $dt_bon->ket; ?></td>
                 </tr>
             </table>
         </div>

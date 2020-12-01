@@ -9,7 +9,13 @@ class Query extends CI_Model{
 
     public function getAmbiAndKembali($id)
     {
-        $query = $this->db->query("SELECT t_pengambilan.*,t_pengembalian.*,t_pasien.* FROM t_pengembalian LEFT OUTER JOIN t_pengambilan ON(t_pengambilan.id_pengambilan = t_pengembalian.id_pengambilan) LEFT OUTER JOIN t_pasien ON(t_pasien.no_rm = t_pengambilan.no_rm) WHERE t_pengembalian.id_pengembalian='$id'");
+        $query = $this->db->query("SELECT t_pengambilan.*,t_pasien.* FROM t_pengambilan LEFT OUTER JOIN t_pasien ON(t_pasien.no_rm=t_pengambilan.no_rm) WHERE t_pengambilan.id_pengambilan='$id'");
+        return $query->row();
+    }
+
+    public function getPengembalian($id)
+    {
+        $query = $this->db->query("SELECT * FROM t_pengembalian WHERE id_pengambilan='$id'");
         return $query->row();
     }
 }

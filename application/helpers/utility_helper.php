@@ -26,4 +26,14 @@ function jenKel($jk){
     }
     return $jenkel;
 }
+
+function getPengembalianByIdTgl($id)
+{
+    $ci =& get_instance();
+    //$m = $ci->load->model('Query');
+    $row = $ci->db->query("SELECT * FROM t_pengembalian WHERE id_pengambilan='$id'");
+    $sql = $row->row();
+    $tgl = $sql->tgl_kembali;
+    return $tgl;
+}
 ?>
