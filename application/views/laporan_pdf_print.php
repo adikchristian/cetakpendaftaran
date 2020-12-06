@@ -73,11 +73,11 @@
                     Bukti Pendaftaran Online
                 </h3>
             </div>
-            <div id="header-kanan">
-                <img src="<?php echo base_url(); ?>/public/assets/img/examples/logoinvoice.svg" alt="company logo" style="margin-bottom: 10px;">
+            <div id="header-kanan" style="background:#cfd0d1; padding:5px;">
+                <img src="<?php echo base_url(); ?>assets/img/logo-baru.png" alt="company logo" style="margin-bottom: 10px;" height="40px"> 
                 <br />
-                Bandung, West Java, Indonesia<br />
-                Fax 621113
+                Jl Kecak No. 9A Gatot Subroto Timur, Denpasar, Bali<br />
+                80239
             </div>
             <div class="clear"></div>
         </div>
@@ -163,7 +163,7 @@
                 </tr>
             </table>
         </div>
-        <b>Notes</b><br /> We really appreciate your business and if there's anything else we can do, please let us know! Also, should you need us to add VAT or anything else to this order, it's super easy since this is a template, so just ask!
+        <b>Notes</b><br /> Pastikan anda datang 30 menit sebelum jadwal yang telah ditetukan 
     </div>
     <!--<h3 class="invoice-title">
                 Bukti Pendaftaran Online

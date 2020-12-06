@@ -74,8 +74,8 @@
                     Rekam Medis
                 </h3>
             </div>
-            <div id="header-kanan">
-                <img src="<?php echo base_url(); ?>/assets/img/logo.png" alt="company logo" style="margin-bottom: 10px; width:80px; height:80px;">
+            <div id="header-kanan" style="background:#cfd0d1; padding:5px;">
+                <img src="<?php echo base_url(); ?>assets/img/logo-baru.png" alt="company logo" style="margin-bottom: 10px;" height="40px">
                 <br />
                 Bandung, West Java, Indonesia<br />
                 Fax 621113
@@ -116,68 +116,7 @@
                 </tr>
             </table>
         </div>
-        <b>Notes</b><br /> We really appreciate your business and if there's anything else we can do, please let us know! Also, should you need us to add VAT or anything else to this order, it's super easy since this is a template, so just ask!
     </div>
-    <!--<h3 class="invoice-title">
-                Bukti Pendaftaran Online
-            </h3>
-            <div class="invoice-logo">
-                <img src="<?php echo base_url(); ?>/assets/img/examples/logoinvoice.svg" alt="company logo">
-            </div>
-        </div>
-        <div class="invoice-desc">
-            Bandung, West Java, Indonesia<br />
-            Fax 621113
-        </div>
-    </div>
-    <div class="card-body">
-        <div class="separator-solid"></div>
-    </div>
-    <div class="card-footer">
-        <div class="row">
-            <div class="col-sm-12 col-md-7 mb-3 mb-md-0 transfer-to">
-                <h5 class="sub">Detail Pasien</h5>
-                <div class="account-transfer text-left">
-                    <div><span>No Rm:</span><span class=""><?php echo $dt_bon->no_rm; ?></span></div>
-                    <div><span>Nama Pasien:</span><span class="text-left"><?php echo $dt_bon->nama_pasien; ?></span></div>
-                    <div><span>Tgl Lahir:</span><span><?php echo tglIndo($dt_bon->tgl_lahir); ?></span></div>
-                    <div><span>No Jkn:</span><span><?php echo $dt_bon->no_jkn; ?></span></div>
-                    <div><span>Jenis Kelamin:</span><span><?php echo jenKel($dt_bon->jk); ?></span></div>
-                    <div><span>Alamat:</span><span><?php echo $dt_bon->alamat; ?></span></div>
-                    <div><span>Telp / HP:</span><span><?php echo $dt_bon->telp; ?></span></div>
-                    <div><span>Umur:</span><span><?php echo $dt_bon->umur . ' Tahun'; ?></span></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12 col-md-7 mt-5 mb-md-0 transfer-to">
-                <h5 class="sub">Detail Kunjungan</h5>
-                <div class="account-transfer text-left">
-                    <div><span>No Registrasi:</span><span class=""><?php echo $dt_bon->no_reg; ?></span></div>
-
-                    <div><span>Poli/Pelayanan:</span><span class=""><?php echo $dt_bon->name_poli; ?></span></div>
-                    <div><span>Dokter:</span><span class="text-left"><?php echo $dt_bon->dokter_name; ?></span></div>
-                    <div><span>Tanggal:</span><span><?php echo tglIndo($dt_bon->tgl_kontrol); ?></span></div>
-                    <div><span>Jadwal:</span><span><?php echo $dt_bon->hari; ?>, <?php echo $dt_bon->jam; ?></span></div>
-                </div>
-            </div>
-        </div>
-        <div class="separator-solid"></div>
-        <h6 class="text-uppercase mt-4 mb-3 fw-bold">
-            Notes
-        </h6>
-        <p class="text-muted mb-0">
-            We really appreciate your business and if there's anything else we can do, please let us know! Also, should you need us to add VAT or anything else to this order, it's super easy since this is a template, so just ask!
-        </p>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>-->
 </body>
 
 </html>

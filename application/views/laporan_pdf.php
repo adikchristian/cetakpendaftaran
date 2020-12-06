@@ -70,11 +70,11 @@
                     Bukti Pendaftaran Online
                 </h3>
             </div>
-            <div id="header-kanan">
-                <img src="<?php echo base_url(); ?>/assets/img/examples/logoinvoice.svg" alt="company logo" style="margin-bottom: 10px;">
+            <div id="header-kanan" style="background:#cfd0d1; padding:5px;">
+                <img src="<?php echo base_url(); ?>assets/img/logo-baru.png" alt="company logo" style="margin-bottom: 10px;" height="40px">
                 <br />
-                Bandung, West Java, Indonesia<br />
-                Fax 621113
+                Jl Kecak No. 9A Gatot Subroto Timur, Denpasar, Bali<br />
+                80239
             </div>
             <div class="clear"></div>
         </div>
@@ -160,68 +160,8 @@
                 </tr>
             </table>
         </div>
-        <b>Notes</b><br /> We really appreciate your business and if there's anything else we can do, please let us know! Also, should you need us to add VAT or anything else to this order, it's super easy since this is a template, so just ask!
+        <b>Notes</b><br /> Pastikan anda datang 30 menit sebelum jadwal yang telah ditetukan 
     </div>
-    <!--<h3 class="invoice-title">
-                Bukti Pendaftaran Online
-            </h3>
-            <div class="invoice-logo">
-                <img src="<?php echo base_url(); ?>/assets/img/examples/logoinvoice.svg" alt="company logo">
-            </div>
-        </div>
-        <div class="invoice-desc">
-            Bandung, West Java, Indonesia<br />
-            Fax 621113
-        </div>
-    </div>
-    <div class="card-body">
-        <div class="separator-solid"></div>
-    </div>
-    <div class="card-footer">
-        <div class="row">
-            <div class="col-sm-12 col-md-7 mb-3 mb-md-0 transfer-to">
-                <h5 class="sub">Detail Pasien</h5>
-                <div class="account-transfer text-left">
-                    <div><span>No Rm:</span><span class=""><?php echo $dt_daftar->no_rm; ?></span></div>
-                    <div><span>Nama Pasien:</span><span class="text-left"><?php echo $dt_daftar->nama_pasien; ?></span></div>
-                    <div><span>Tgl Lahir:</span><span><?php echo tglIndo($dt_daftar->tgl_lahir); ?></span></div>
-                    <div><span>No Jkn:</span><span><?php echo $dt_daftar->no_jkn; ?></span></div>
-                    <div><span>Jenis Kelamin:</span><span><?php echo jenKel($dt_daftar->jk); ?></span></div>
-                    <div><span>Alamat:</span><span><?php echo $dt_daftar->alamat; ?></span></div>
-                    <div><span>Telp / HP:</span><span><?php echo $dt_daftar->telp; ?></span></div>
-                    <div><span>Umur:</span><span><?php echo $dt_daftar->umur . ' Tahun'; ?></span></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12 col-md-7 mt-5 mb-md-0 transfer-to">
-                <h5 class="sub">Detail Kunjungan</h5>
-                <div class="account-transfer text-left">
-                    <div><span>No Registrasi:</span><span class=""><?php echo $dt_daftar->no_reg; ?></span></div>
-
-                    <div><span>Poli/Pelayanan:</span><span class=""><?php echo $dt_daftar->name_poli; ?></span></div>
-                    <div><span>Dokter:</span><span class="text-left"><?php echo $dt_daftar->dokter_name; ?></span></div>
-                    <div><span>Tanggal:</span><span><?php echo tglIndo($dt_daftar->tgl_kontrol); ?></span></div>
-                    <div><span>Jadwal:</span><span><?php echo $dt_daftar->hari; ?>, <?php echo $dt_daftar->jam; ?></span></div>
-                </div>
-            </div>
-        </div>
-        <div class="separator-solid"></div>
-        <h6 class="text-uppercase mt-4 mb-3 fw-bold">
-            Notes
-        </h6>
-        <p class="text-muted mb-0">
-            We really appreciate your business and if there's anything else we can do, please let us know! Also, should you need us to add VAT or anything else to this order, it's super easy since this is a template, so just ask!
-        </p>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>-->
 </body>
 
 </html>
