@@ -89,6 +89,11 @@
                     <td><?php echo $dt_daftar->no_rm; ?></td>
                 </tr>
                 <tr>
+                    <td>No JKN</td>
+                    <td>:</td>
+                    <td><?php echo $dt_daftar->no_jkn; ?></td>
+                </tr>
+                <tr>
                     <td>Nama Pasien</td>
                     <td>:</td>
                     <td><?php echo $dt_daftar->nama_pasien; ?></td>
@@ -97,11 +102,6 @@
                     <td>Tgl Lahir</td>
                     <td>:</td>
                     <td><?php echo tglIndo($dt_daftar->tgl_lahir); ?></td>
-                </tr>
-                <tr>
-                    <td>No JKN</td>
-                    <td>:</td>
-                    <td><?php echo $dt_daftar->no_jkn; ?></td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
