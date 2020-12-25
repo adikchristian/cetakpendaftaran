@@ -70,7 +70,7 @@
         <div id="header">
             <div id="header-kiri">
                 <h3 class="invoice-title">
-                    Bukti Pendaftaran Online
+                    Bukti Pendaftaran
                 </h3>
             </div>
             <div id="header-kanan" style="background:#cfd0d1; padding:5px;">

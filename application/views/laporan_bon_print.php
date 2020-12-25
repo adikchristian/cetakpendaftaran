@@ -75,10 +75,9 @@
                 </h3>
             </div>
             <div id="header-kanan" style="background:#cfd0d1; padding:5px;">
-                <img src="<?php echo base_url(); ?>assets/img/logo-baru.png" alt="company logo" style="margin-bottom: 10px;" height="40px">
+                <img src="<?php echo base_url(); ?>assets/img/logo-baru.png" alt="company logo" style="margin-bottom: 10px;" height="40px"> 
                 <br />
-                Bandung, West Java, Indonesia<br />
-                Fax 621113
+                Jl Kecak No. 9A Gatot Subroto Timur, Denpasar, Bali<br />
             </div>
             <div class="clear"></div>
         </div>
