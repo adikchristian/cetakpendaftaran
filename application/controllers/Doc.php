@@ -141,4 +141,46 @@ class Doc extends CI_Controller
 
 	    $writer->save('php://output');
 	}
+
+	public function expFeedbackDetail($tgl1,$tgl2,$pertanyaan,$pasien,$penilaian,$idnilai)
+	{
+		$sql = $this->Query->getFeedbackDetail("lap",$tgl1,$tgl2,$pertanyaan,$pasien,$penilaian,$idnilai,"BETWEEN");
+
+		$spreadsheet = new Spreadsheet;
+
+        $spreadsheet->setActiveSheetIndex(0)
+                      ->setCellValue('A1', 'No')
+					  ->setCellValue('B1', 'No RM')
+					  ->setCellValue('C1', 'No REG')
+                      ->setCellValue('D1', 'Nama Pasien')
+                      ->setCellValue('E1', 'Tanggal')
+					  ->setCellValue('F1', 'Pertanyaan')
+					  ->setCellValue('H1', 'Nilai');
+
+        $kolom = 2;
+        $nomor = 1;
+        foreach($sql as $row) {
+
+            $spreadsheet->setActiveSheetIndex(0)
+                           ->setCellValue('A' . $kolom, $nomor)
+                           ->setCellValue('B' . $kolom, $row->no_rm)
+                           ->setCellValue('C' . $kolom, $row->no_reg)
+                           ->setCellValue('D' . $kolom, $row->nama_pasien)
+						   ->setCellValue('E' . $kolom, $row->tgl_nilai)
+						   ->setCellValue('F' . $kolom, $row->pertanyaan)
+						   ->setCellValue('H' . $kolom, $row->nilai);
+
+            $kolom++;
+            $nomor++;
+
+        }
+
+        $writer = new Xlsx($spreadsheet);
+
+        header('Content-Type: application/vnd.ms-excel');
+	  	header('Content-Disposition: attachment;filename="Laporan-Feedback-detail.xlsx"');
+	    header('Cache-Control: max-age=0');
+
+	    $writer->save('php://output');
+	}
 }
