@@ -103,5 +103,7 @@ class Query extends CI_Model{
 
         return $this->db->query("SELECT $selectTable FROM t_nilai_detail LEFT OUTER JOIN t_nilai ON(t_nilai.id_nilai=t_nilai_detail.id_nilai) LEFT OUTER JOIN t_daftar ON(t_daftar.no_reg=t_nilai.no_reg)LEFT OUTER JOIN t_pasien ON(t_pasien.no_rm=t_daftar.no_rm) WHERE t_nilai_detail.visible='1' $wherePeriode $wherePetanyaan $wherePasien $wherePenilaian $whereIdNilai ORDER BY t_nilai.tgl_nilai ASC")->Result();
     }
+
+    
 }
 ?>
