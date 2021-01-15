@@ -43,5 +43,22 @@ class Query extends CI_Model{
         AND `t_daftar`.`visible` = '1' 
         $wherePoli $wherePasien ORDER BY t_daftar.tgl_kontrol ASC")->Result();
     }
+
+    public function getLapFeedback($tgl1,$tgl2,$poli=null,$norm=null)
+    {
+        if($poli==null or $poli=="none"){
+            $wherePoli = "";
+        }else{
+            $wherePoli = "AND t_poli.id_poli='$poli'";
+        }
+
+        if($norm==null or $poli=="none"){
+            $wherePasien="";
+        }else{
+            $wherePasien="AND t_daftar.no_rm='$norm'";
+        }
+
+        return $this->db->query("SELECT t_pasien.no_rm,t_pasien.nama_pasien,t_daftar.no_reg,t_nilai.tgl_nilai,t_poli.name_poli,t_dokter.dokter_name FROM t_nilai LEFT OUTER JOIN t_daftar ON(t_daftar.no_reg=t_nilai.no_reg) LEFT OUTER JOIN t_pasien ON(t_pasien.no_rm=t_daftar.no_rm) LEFT OUTER JOIN t_jadwal ON(t_jadwal.id_jadwal=t_daftar.id_jadwal) LEFT OUTER JOIN t_dokter ON(t_dokter.id_dokter=t_jadwal.id_dokter) LEFT OUTER JOIN t_poli ON(t_poli.id_poli=t_dokter.id_poli) WHERE t_nilai.visible='1' AND t_nilai.tgl_nilai BETWEEN '$tgl1' AND '$tgl2' $wherePoli $wherePasien ORDER BY t_nilai.tgl_nilai DESC")->Result();
+    }
 }
 ?>
