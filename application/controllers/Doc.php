@@ -225,4 +225,42 @@ class Doc extends CI_Controller
 
 	    $writer->save('php://output');
 	}
+
+	public function expPengembalianLap($tgl1,$tgl2,$pasien)
+	{
+		$sql = $this->Query->getPengembalianLap("lap",$tgl1,$tgl2,$pasien,"BETWEEN");
+
+		$spreadsheet = new Spreadsheet;
+
+        $spreadsheet->setActiveSheetIndex(0)
+                      ->setCellValue('A1', 'No')
+					  ->setCellValue('B1', 'No RM')
+					  ->setCellValue('C1', 'Nama Pasien')
+                      ->setCellValue('D1', 'Tanggal')
+                      ->setCellValue('E1', 'Catatan');
+
+        $kolom = 2;
+        $nomor = 1;
+        foreach($sql as $row) {
+
+            $spreadsheet->setActiveSheetIndex(0)
+                           ->setCellValue('A' . $kolom, $nomor)
+                           ->setCellValue('B' . $kolom, $row->no_rm)
+                           ->setCellValue('C' . $kolom, $row->nama_pasien)
+                           ->setCellValue('D' . $kolom, $row->tgl_kembali)
+						   ->setCellValue('E' . $kolom, $row->catatan);
+
+            $kolom++;
+            $nomor++;
+
+        }
+
+        $writer = new Xlsx($spreadsheet);
+
+        header('Content-Type: application/vnd.ms-excel');
+	  	header('Content-Disposition: attachment;filename="Laporan-Pengembalian.xlsx"');
+	    header('Cache-Control: max-age=0');
+
+	    $writer->save('php://output');
+	}
 }

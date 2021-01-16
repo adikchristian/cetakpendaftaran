@@ -135,6 +135,31 @@ class Query extends CI_Model{
         return $this->db->query("SELECT $select FROM t_pengambilan LEFT OUTER JOIN t_pasien ON(t_pasien.no_rm=t_pengambilan.no_rm) WHERE t_pengambilan.visible='1' $filterPeriode $whereStatus $wherePasien ORDER By t_pengambilan.tgl_proses ASC")->Result();
     }
 
+    public function getPengembalianLap($select="lap",$tgl1,$tgl2,$pasien=null,$kate="BETWEEN")
+    {
+        if($pasien==null or $pasien=="none"){
+            $wherePasien = "";
+        }else{
+            $wherePasien = "AND t_pengambilan.no_rm='$pasien'";
+        }
+
+        if($select=="lap"){
+            $select="t_pasien.no_rm,t_pasien.nama_pasien,t_pengembalian.tgl_kembali,t_pengembalian.catatan";
+        }else if($select=="distinct"){
+            $select="DISTINCT t_pengembalian.tgl_kembali";
+        }else{
+            $select="t_pengembalian.tgl_kembali";
+        }
+
+        if($kate=="BETWEEN"){
+            $wherePeriode="AND t_pengembalian.tgl_kembali BETWEEN '$tgl1' AND '$tgl2'";
+        }else{
+            $wherePeriode="AND t_pengembalian.tgl_kembali='$tgl1'";
+        }
+
+        return $this->db->query("SELECT $select FROM `t_pengembalian` LEFT OUTER JOIN t_pengambilan ON(t_pengembalian.id_pengambilan=t_pengambilan.id_pengambilan) LEFT OUTER JOIN t_pasien ON(t_pasien.no_rm=t_pengambilan.no_rm) WHERE t_pengembalian.visible='1' $wherePeriode $wherePasien")->Result();
+    }
+
     
 }
 ?>
