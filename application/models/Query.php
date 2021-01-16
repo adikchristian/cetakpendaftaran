@@ -104,6 +104,37 @@ class Query extends CI_Model{
         return $this->db->query("SELECT $selectTable FROM t_nilai_detail LEFT OUTER JOIN t_nilai ON(t_nilai.id_nilai=t_nilai_detail.id_nilai) LEFT OUTER JOIN t_daftar ON(t_daftar.no_reg=t_nilai.no_reg)LEFT OUTER JOIN t_pasien ON(t_pasien.no_rm=t_daftar.no_rm) WHERE t_nilai_detail.visible='1' $wherePeriode $wherePetanyaan $wherePasien $wherePenilaian $whereIdNilai ORDER BY t_nilai.tgl_nilai ASC")->Result();
     }
 
+    public function getPengambilan($select="lap",$tgl1,$tgl2,$status=null,$pasien=null,$kate="BETWEEN")
+    {
+        if($status==null or $status=="none"){
+            $whereStatus="";
+        }else{
+            $whereStatus="AND t_pengambilan.kembali='$status'";    
+        }
+
+        if($pasien==null or $status=="none"){
+            $wherePasien = "";
+        }else{
+            $wherePasien = "AND t_pengambilan.no_rm='$pasien'";
+        }
+
+        if($select=="lap"){
+            $select="t_pasien.no_rm,t_pasien.nama_pasien,t_pengambilan.tgl_proses,t_pengambilan.nama_peminjam,t_pengambilan.ket,t_pengambilan.kembali";
+        }else if($select=="distinct"){
+            $select="DISTINCT t_pengambilan.tgl_proses";
+        }else{
+            $select="t_pengambilan.tgl_proses";
+        }
+
+        if($kate=="BETWEEN"){
+            $filterPeriode="AND t_pengambilan.tgl_proses BETWEEN '$tgl1' AND '$tgl2'";
+        }else{
+            $filterPeriode="AND t_pengambilan.tgl_proses='$tgl1'";
+        }
+
+        return $this->db->query("SELECT $select FROM t_pengambilan LEFT OUTER JOIN t_pasien ON(t_pasien.no_rm=t_pengambilan.no_rm) WHERE t_pengambilan.visible='1' $filterPeriode $whereStatus $wherePasien ORDER By t_pengambilan.tgl_proses ASC")->Result();
+    }
+
     
 }
 ?>
